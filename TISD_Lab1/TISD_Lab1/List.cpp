@@ -8,17 +8,6 @@ List::List(void)
 	top = NULL;
 }
 
-List::List(ifstream& file)
-{
-	top = NULL;
-	char inf;
-	while (!file.eof())
-	{
-		file >> inf;
-		PushBack(inf);
-	}
-}
-
 void List::PushBack(char temp)
 {
 	if (top == NULL)
@@ -57,7 +46,7 @@ void List::Insert(int position, char temp)
 		tElem = new Tlist;
 		tElem->inf = temp;
 		tElem->next = NULL;
-		for (int i = 1; i <= position - 2; i++)
+		for (int i = 1; i <= position - 1; i++)
 		{
 			p = p->next;
 		}
@@ -74,7 +63,7 @@ void List::PushFront(char temp)
 	top->next = p;
 }
 
-bool List::FindNextElement(char element)
+bool List::FindElement(char element)
 {
 	Tlist *t = top;
 	bool result = false;
@@ -141,7 +130,7 @@ void List::ReadListOutFile(char* nameDataFile, char* nameErrorFile, ifstream &st
 			if (streamOut.eof())
 			{
 				streamOut.close();
-				cout << "List has been read from file." << endl;
+				cout << "Список был загружен из файла" << endl;
 				return;
 			}
 			PushBack(buf);
@@ -174,14 +163,8 @@ void List::WriteListInFile(int result, char* nameResultFile, char* nameErrorFile
 	stream.open(nameResultFile);
 	if (stream.is_open())
 	{
-		/*Tlist *p = top;
-		while (p != NULL)
-		{
-			stream << p->inf;
-			p = p->next;
-		}*/
 		stream << result;
-		cout << "List has been written in file." << endl;
+		cout << "Результат был записан в файл" << endl;
 		stream.close();
 	}
 	else

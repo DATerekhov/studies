@@ -14,7 +14,6 @@ private:
 	Tlist *top;
 public:
 	List(void);
-	List(ifstream&);
 	virtual ~List(void);
 	void PushBack(char);
 	void Insert(int, char);
@@ -23,7 +22,7 @@ public:
 	int GetLength();
 	void DeleteList();
 	int Calculate();
-	bool FindNextElement(char);
+	bool FindElement(char);
 	void ReadListOutFile(char*, char*, ifstream &, ofstream &);
 	void WriteListInFile(int, char*, char*, ofstream &);
 };
