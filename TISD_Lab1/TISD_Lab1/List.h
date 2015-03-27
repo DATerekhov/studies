@@ -23,7 +23,9 @@ public:
 	int GetLength();
 	void DeleteList();
 	int Calculate();
-	void ReadListOutFile(char* nameDataFile, char* nameErrorFile, ifstream &streamOut, ofstream &streamIn);
+	bool FindNextElement(char);
+	void ReadListOutFile(char*, char*, ifstream &, ofstream &);
+	void WriteListInFile(int, char*, char*, ofstream &);
 };
 
 #endif
