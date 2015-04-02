@@ -1,5 +1,6 @@
 #ifndef _BinTree
 #define _BinTree
+
 struct Node
 {
 	int inf;
@@ -10,12 +11,10 @@ class BinTree
 {
 public:
 	BinTree();
-	BinTree(int);
-	Node *CreateBinTree(int);
 	Node *InsertNode(int);
 	void PrintBinTree(Node *, int);
-	void PrintByNode();
-	~BinTree();
+	Node *Search(Node *, int);
+	virtual ~BinTree();
 private:
 	Node *head;
 	int **Nodes;
