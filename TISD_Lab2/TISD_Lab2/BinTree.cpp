@@ -57,26 +57,40 @@ Node *BinTree::InsertNode(int value)
 
 Node *BinTree::Search(Node *head, int temp)
 {
-
-	/*if ((int)head->inf != temp)
-	{
-		if ((int)temp > head->inf)
-		{
-			Search(head->right, temp);
-		}
-		if ((int)temp < head->inf)
-		{
-			Search(head->left, temp);
-		}
-	}
-	else{
-		return head;
-	}*/
-
 	while (head != NULL)
 	{
 		if (temp == head->inf)
 			return head;
 		head = (temp < head->inf ? head->left : head->right);
+	}
+}
+
+void BinTree::PreOrderWalk(Node *head)
+{
+	if (head != NULL)
+	{
+		cout << head->inf << "\t";
+		PreOrderWalk(head->left);
+		PreOrderWalk(head->right);
+	}
+}
+
+void BinTree::PostOrderWalk(Node *head)
+{
+	if (head != NULL)
+	{
+		PostOrderWalk(head->left);
+		PostOrderWalk(head->right);
+		cout << head->inf << "\t";
+	}
+}
+
+void BinTree::InOrderWalk(Node * head)
+{
+	if (head != NULL)
+	{
+		InOrderWalk(head->left);
+		cout << head->inf << "\t";
+		InOrderWalk(head->right);
 	}
 }

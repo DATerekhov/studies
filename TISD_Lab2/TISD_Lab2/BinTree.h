@@ -14,6 +14,9 @@ public:
 	Node *InsertNode(int);
 	void PrintBinTree(Node *, int);
 	Node *Search(Node *, int);
+	void PreOrderWalk(Node *head);
+	void PostOrderWalk(Node *head);
+	void InOrderWalk(Node *head);
 	virtual ~BinTree();
 private:
 	Node *head;

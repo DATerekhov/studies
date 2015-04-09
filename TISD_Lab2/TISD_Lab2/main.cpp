@@ -17,6 +17,11 @@ void main()
 	cout << endl;
 
 	Node *value = temp->Search(head, (int)53);
-	cout << value->inf;
+	cout << value->inf << endl;
+	temp->PreOrderWalk(head);	cout << endl;
+	temp->PostOrderWalk(head);	cout << endl;
+	temp->InOrderWalk(head);	cout << endl;
+
+
 	system("pause");
 }
