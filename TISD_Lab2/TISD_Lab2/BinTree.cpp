@@ -99,7 +99,7 @@ void BinTree::InOrderWalk(Node * head)
 Node *BinTree::ReadOutFile(char* dataFile, ifstream &outStream, BinTree *temp)
 {
 	outStream.open(dataFile);
-	
+
 	if (outStream.is_open())
 	{
 		int buf;
