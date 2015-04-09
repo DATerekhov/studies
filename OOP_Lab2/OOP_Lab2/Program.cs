@@ -10,6 +10,8 @@ namespace OOP_Lab2
     {
         static void Main(string[] args)
         {
+            Project.Print(Project.NewCreate());
+            Console.ReadKey();
         }
     }
 }
