@@ -1,5 +1,7 @@
 #ifndef _BinTree
 #define _BinTree
+#include <fstream>
+using namespace std;
 
 struct Node
 {
@@ -17,6 +19,7 @@ public:
 	void PreOrderWalk(Node *head);
 	void PostOrderWalk(Node *head);
 	void InOrderWalk(Node *head);
+	Node *ReadOutFile(char*, ifstream&, BinTree*);
 	virtual ~BinTree();
 private:
 	Node *head;

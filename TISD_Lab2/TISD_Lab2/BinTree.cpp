@@ -1,5 +1,6 @@
 #include "BinTree.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 BinTree::BinTree()
@@ -93,4 +94,26 @@ void BinTree::InOrderWalk(Node * head)
 		cout << head->inf << "\t";
 		InOrderWalk(head->right);
 	}
+}
+
+Node *BinTree::ReadOutFile(char* dataFile, ifstream &outStream, BinTree *temp)
+{
+	outStream.open(dataFile);
+	
+	if (outStream.is_open())
+	{
+		int buf;
+		outStream >> buf;
+		Node *head = temp->InsertNode(buf);
+
+		while (!outStream.eof())
+		{
+			outStream >> buf;
+			temp->InsertNode(buf);
+		}
+
+		outStream.close();
+		cout << "Yeear!!" << endl;
+	}
+	return head;
 }
