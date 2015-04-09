@@ -21,6 +21,7 @@ public:
 	void InOrderWalk(Node *head);
 	Node *ReadOutFile(char*, ifstream&, BinTree*);
 	virtual ~BinTree();
+	void Printic(Node*);
 private:
 	Node *head;
 	int **Nodes;
