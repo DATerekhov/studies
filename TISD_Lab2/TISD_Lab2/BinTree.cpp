@@ -54,7 +54,7 @@ Node *BinTree::InsertNode(int value)
 	}
 	else head = x;
 	return x;
-	}
+}
 
 Node *BinTree::BinSearch(Node *head, int temp)
 {
@@ -76,16 +76,16 @@ void BinTree::PreOrderWalk(Node *head)
 		PreOrderWalk(head->right);
 	}
 }
-
-int BinTree::PreOrderSearch(Node *head, int temp)
+int k = 0;
+void BinTree::PreOrderSearch(Node *head, int& mas)
 {
-	if ((head != NULL) && (head->inf != temp))
+	if (head != NULL)
 	{
-		cout << head->inf << "  ";
-		PreOrderSearch(head->left, temp);
-		PreOrderSearch(head->right, temp);
+		(&mas)[k] = head->inf;
+		k++;
+		PreOrderSearch(head->left, mas);
+		PreOrderSearch(head->right, mas);
 	}
-	return temp;
 }
 
 void BinTree::PostOrderWalk(Node *head)
@@ -148,49 +148,7 @@ Node *BinTree::ReadOutFile(char* dataFile, ifstream &outStream, BinTree *tempTre
 		}
 
 		outStream.close();
-		cout << "Yeear!!" << endl;
+
 	}
 	return head;
 }
-/*
-void BinTree::Printic(Node *dr)
-{
-	struct stek
-	{
-		Node *d;
-		stek *s;
-	} *st, *st1 = NULL;
-	Node *dr1;
-	dr1 = dr;
-	int pr = 1, i = 0;
-	for (i = 0; i<2; i++)
-	{
-		st = new stek[sizeof(stek)];
-		st->d = dr1;
-		st->s = st1;
-		st1 = st;
-	}
-	cout << dr1->inf << "\t";
-	while (st)
-	{
-		do
-		{
-			if (pr && dr1->left) dr1 = dr1->left;
-			else if (dr1->right) dr1 = dr1->right;
-			pr = 1;
-			if (dr1->left && dr1->right)
-			{
-				st = new stek [sizeof(stek)];
-				st->d = dr1;
-				st->s = st1;
-				st1 = st;
-			}
-			cout << dr1->inf << "\t";
-		} while (dr1->left || dr1->right);
-		dr1 = st->d;
-		st1 = st->s;
-		delete(st);
-		st = st1;
-		if (dr1->right) pr = 0;
-	}
-}*/

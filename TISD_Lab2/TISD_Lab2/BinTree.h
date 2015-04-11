@@ -20,7 +20,7 @@ public:
 	void PreOrderWalk(Node *head);
 	void PostOrderWalk(Node *head);
 	void InOrderWalk(Node *head);
-	int PreOrderSearch(Node *, int);
+	void PreOrderSearch(Node *, int&);
 	void PostOrderSearch(Node *, int&);
 	void InOrderSearch(Node *, int&);
 	Node *ReadOutFile(char*, ifstream&, BinTree*);
