@@ -13,18 +13,19 @@ class BinTree
 {
 public:
 	BinTree();
+	~BinTree();
 	Node *InsertNode(int);
 	void PrintBinTree(Node *, int);
-	Node *Search(Node *, int);
+	Node *BinSearch(Node *, int);
 	void PreOrderWalk(Node *head);
 	void PostOrderWalk(Node *head);
 	void InOrderWalk(Node *head);
+	int PreOrderSearch(Node *, int);
+	void PostOrderSearch(Node *, int&);
+	void InOrderSearch(Node *, int&);
 	Node *ReadOutFile(char*, ifstream&, BinTree*);
-	virtual ~BinTree();
-	void Printic(Node*);
 private:
 	Node *head;
-	int **Nodes;
 	int CountOfNodes;
 };
 

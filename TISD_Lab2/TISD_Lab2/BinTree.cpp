@@ -56,7 +56,7 @@ Node *BinTree::InsertNode(int value)
 	return x;
 	}
 
-Node *BinTree::Search(Node *head, int temp)
+Node *BinTree::BinSearch(Node *head, int temp)
 {
 	while (head != NULL)
 	{
@@ -71,10 +71,21 @@ void BinTree::PreOrderWalk(Node *head)
 {
 	if (head != NULL)
 	{
-		cout << head->inf << "\t";
+		cout << head->inf << "  ";
 		PreOrderWalk(head->left);
 		PreOrderWalk(head->right);
 	}
+}
+
+int BinTree::PreOrderSearch(Node *head, int temp)
+{
+	if ((head != NULL) && (head->inf != temp))
+	{
+		cout << head->inf << "  ";
+		PreOrderSearch(head->left, temp);
+		PreOrderSearch(head->right, temp);
+	}
+	return temp;
 }
 
 void BinTree::PostOrderWalk(Node *head)
@@ -83,17 +94,40 @@ void BinTree::PostOrderWalk(Node *head)
 	{
 		PostOrderWalk(head->left);
 		PostOrderWalk(head->right);
-		cout << head->inf << "\t";
+		cout << head->inf << "  ";
+	}
+}
+int i = 0;
+int j = 0;
+void BinTree::PostOrderSearch(Node *head, int& mas)
+{
+	if (head != NULL)
+	{
+		PostOrderSearch(head->left, mas);
+		PostOrderSearch(head->right, mas);
+		(&mas)[i] = head->inf;
+		i++;
 	}
 }
 
-void BinTree::InOrderWalk(Node * head)
+void BinTree::InOrderWalk(Node *head)
 {
 	if (head != NULL)
 	{
 		InOrderWalk(head->left);
-		cout << head->inf << "\t";
+		cout << head->inf << "  ";
 		InOrderWalk(head->right);
+	}
+}
+
+void BinTree::InOrderSearch(Node *head, int& mas)
+{
+	if (head != NULL)
+	{
+		InOrderSearch(head->left, mas);
+		(&mas)[j] = head->inf;
+		j++;
+		InOrderSearch(head->right, mas);
 	}
 }
 
@@ -118,7 +152,7 @@ Node *BinTree::ReadOutFile(char* dataFile, ifstream &outStream, BinTree *tempTre
 	}
 	return head;
 }
-
+/*
 void BinTree::Printic(Node *dr)
 {
 	struct stek
@@ -159,4 +193,4 @@ void BinTree::Printic(Node *dr)
 		st = st1;
 		if (dr1->right) pr = 0;
 	}
-}
+}*/
